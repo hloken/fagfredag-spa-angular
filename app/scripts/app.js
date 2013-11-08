@@ -3,8 +3,12 @@ angular.module('yrApp', ['ngRoute']).config(function ($routeProvider){
     when('/', {
       templateUrl: '../views/home.html',
       controller: 'HomeCtrl'
-    }).
-    otherwise({
-      redirectTo: '/'
+    })
+      .when('/city', {
+          templateUrl: '../views/city.html',
+          controller: 'CityCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
     });
 });

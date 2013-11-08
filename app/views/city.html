@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="panel-title">Været for {{locationData.name}}, {{locationData.country}}</h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-1 temperature">
+                    <span>{{currentForecast.temperature}}°</span>
+                </div>
+                <div class="col-sm-4 weather">
+                    <img src={{currentForecast.weatherIcon}}>
+                </div>
+                <div class="col-sm-5">
+                    <div class="info">
+                        <p>Nedbør:</p>
+                        <p>{{currentForecast.precipitation}} mm</p>
+                    </div>
+                    <div class="info">
+                        <p>Vind:</p>
+                        <p>{{currentForecast.windDirection}}, {{currentForecast.windMps}} m/s fra sør</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">I morgen, {{tomorrow}} </h2>
+        </div>
+        <table class="table">
+            <tr>
+                <th>Tid</th>
+                <th>Varsel</th>
+                <th>Temperatur</th>
+                <th>Nedbør</th>
+                <th>Vind</th>
+            </tr>
+            <tr ng-repeat="forecast in locationData.forecasts">
+                <td>kl {{forecast.fromHours}}-{{forecast.toHours}}</td>
+                <td><img ng-src={{forecast.weatherIcon}}></td>
+                <td>{{forecast.temperature}}°</td>
+                <td>{{forecast.precipitation}} mm</td>
+                <td>{{forecast.windDescription}}, {{forecast.windMps}} m/s fra {{forecast.windDirection}}</td>
+            </tr>
+         </table>
+    </div>
+</div>
+<script src="lib/jquery/jquery-1.10.2.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
